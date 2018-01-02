@@ -3,7 +3,7 @@ from ExcelWriter import ExcelWriter
 
 
 class Simulation():
-    def __init__(self, initial, l, m, output, steps):
+    def __init__(self, initial, l, m, output, steps, graph_type):
         self.n = initial
         self.l = l
         self.m = m
@@ -15,13 +15,13 @@ class Simulation():
         self.surv = [initial]
         self.generations.append([1]*self.n)
 
-        self.excelWriter = ExcelWriter(self)
+        self.excelWriter = ExcelWriter(self, graph_type)
 
     def simulate(self):
         prev = self.n
         same = 0
         gen = 0
-        while (self.steps > 0 and same < self.steps) or gen <= self.m:
+        while (self.steps > 0 and same < self.steps) or (self.steps == 0 and gen < self.m):
             self.generations.append([0]*self.n)
             count = 0
             surv = 0
