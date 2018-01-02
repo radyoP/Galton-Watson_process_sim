@@ -1,5 +1,5 @@
 import argparse
-from Simulation import Simulation
+from Galton_Watson_process_sim.Simulation import Simulation
 
 parser = argparse.ArgumentParser(description="Starts the simulation of Galton-Watson process")
 
